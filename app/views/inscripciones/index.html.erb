@@ -1,0 +1,68 @@
+<div style="text-align: center; margin-top: 50px; font-family: sans-serif; max-width: 900px; margin-left: auto; margin-right: auto;">
+  <h1 style="color: #2c3e50;">Portal del Estudiante</h1>
+  
+  <h2 style="color: #8e44ad; margin-top: 40px;">Mi Carga Académica (Materias Inscritas)</h2>
+  
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 50px;">
+    <% if @mis_inscripciones.any? %>
+      <% @mis_inscripciones.each do |insc| %>
+        <div style="background: white; border: 2px solid #8e44ad; padding: 20px; border-radius: 12px; width: 250px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="margin: 0; color: #2c3e50;"><%= insc.materia.nombre_materia %></h3>
+            
+            <div style="margin-top: 15px; padding: 10px; background: #f4f6f7; border-radius: 6px;">
+              <span style="font-size: 14px; color: #7f8c8d;">Calificación:</span><br>
+              <% if insc.calificacion.present? %>
+                <strong style="font-size: 20px; color: #27ae60;"><%= insc.calificacion %></strong>
+              <% else %>
+                <strong style="font-size: 16px; color: #f39c12;">Pendiente</strong>
+              <% end %>
+            </div>
+          </div>
+          
+          <div style="margin-top: 15px;">
+            <%= button_to "Dar de baja", inscripcion_path(insc), method: :delete, data: { turbo_confirm: "¿Seguro que quieres dar de baja esta materia?" }, style: "background: #fdf2e9; color: #c0392b; padding: 8px; border: 1px solid #c0392b; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 14px; width: 100%;" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p style="color: #7f8c8d;">Aún no te has inscrito a ninguna materia este semestre.</p>
+    <% end %>
+  </div>
+
+  <hr style="border: 1px solid #eee;">
+
+  <h2 style="color: #2c3e50;">Oferta Educativa</h2>
+  <p>Materias disponibles para inscripción:</p>
+  
+  <table style="width: 100%; border-collapse: collapse; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <tr style="background: #34495e; color: white;">
+      <th style="padding: 15px; text-align: left;">Materia</th>
+      <th style="padding: 15px; text-align: center;">Créditos</th>
+      <th style="padding: 15px; text-align: center;">Acción</th>
+    </tr>
+    <% @materias.each do |materia| %>
+      <tr style="border-bottom: 1px solid #ddd; background: white;">
+        <td style="padding: 15px; text-align: left; font-weight: bold; color: #2c3e50;"><%= materia.nombre_materia %></td>
+        <td style="padding: 15px; text-align: center; color: #7f8c8d;"><%= materia.creditos %></td>
+        <td style="padding: 15px; text-align: center;">
+          
+          <% ya_inscrito = @mis_inscripciones.any? { |i| i.materia_id == materia.id } %>
+          
+          <% if ya_inscrito %>
+            <span style="color: #8e44ad; font-weight: bold; font-size: 14px; background: #f4ecf7; padding: 5px 10px; border-radius: 4px;">
+              <i class="fa-solid fa-check"></i> Inscrito
+            </span>
+          <% else %>
+            <%= button_to "Inscribirme", inscripciones_path(materia_id: materia.id), method: :post, style: "background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: background 0.3s;" %>
+          <% end %>
+
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <div style="margin-top: 30px; text-align: left;">
+    <a href="/" style="color: #7f8c8d; text-decoration: none; font-weight: bold;">← Regresar al Inicio</a>
+  </div>
+</div>

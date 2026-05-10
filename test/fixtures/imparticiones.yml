@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  docente: one
+  materia: one
+  periodo: MyString
+  nrc_grupo: MyString
+
+two:
+  docente: two
+  materia: two
+  periodo: MyString
+  nrc_grupo: MyString

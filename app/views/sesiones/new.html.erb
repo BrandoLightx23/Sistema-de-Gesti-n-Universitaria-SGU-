@@ -1,0 +1,33 @@
+<div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
+  <h1 style="color: #2c3e50;">Iniciar Sesión</h1>
+  <p style="color: #7f8c8d;">Ingresa tus credenciales para continuar</p>
+
+  <div style="background-color: #f8f9fa; border: 1px solid #ddd; padding: 30px; margin: 20px auto; width: 350px; border-radius: 8px; text-align: left;">
+    
+    <% if flash[:alert] %>
+      <div style="color: #c0392b; margin-bottom: 15px; font-weight: bold;">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <%= form_with url: login_path, local: true do |f| %>
+      
+      <div style="margin-bottom: 15px;">
+        <%= f.label :correo, "Correo Electrónico", style: "display: block; font-weight: bold;" %>
+        <%= f.email_field :correo, style: "width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;" %>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <%= f.label :password, "Contraseña", style: "display: block; font-weight: bold;" %>
+        <%= f.password_field :password, style: "width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;" %>
+      </div>
+
+      <%= f.submit "Entrar", style: "width: 100%; background-color: #3498db; color: white; padding: 10px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;" %>
+    <% end %>
+
+    <div style="margin-top: 15px; text-align: center; font-size: 14px;">
+      ¿No tienes cuenta? <a href="/registro" style="color: #3498db; text-decoration: none;">Regístrate aquí</a>
+    </div>
+
+  </div>
+</div>

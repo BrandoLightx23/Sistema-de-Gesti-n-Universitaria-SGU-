@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  matricula: MyString
+  semestre_actual: 1
+
+two:
+  usuario: two
+  matricula: MyString
+  semestre_actual: 1

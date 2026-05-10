@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estudiante: one
+  materia: one
+  docente: one
+  valor_nota: 9.99
+
+two:
+  estudiante: two
+  materia: two
+  docente: two
+  valor_nota: 9.99

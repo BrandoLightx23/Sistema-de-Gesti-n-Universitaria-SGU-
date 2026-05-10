@@ -1,0 +1,24 @@
+<%= form_with(model: @materia, local: true) do |form| %>
+  <% if @materia.errors.any? %>
+    <div style="color: #c0392b; background-color: #fadbd8; padding: 15px; border-radius: 8px; margin-bottom: 25px; border-left: 5px solid #c0392b;">
+      <h4 style="margin: 0 0 10px 0;">¡Ups! Revisa lo siguiente:</h4>
+      <ul style="margin: 0; padding-left: 20px; font-size: 14px;">
+        <% @materia.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom: 20px;">
+    <%= form.label :nombre_materia, "Nombre de la Asignatura", style: "display: block; font-weight: bold; color: #34495e; margin-bottom: 8px;" %>
+    <%= form.text_field :nombre_materia, placeholder: "Ej. Cálculo Integral", style: "width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #dcdde1; box-sizing: border-box;" %>
+  </div>
+
+  <div style="margin-bottom: 30px;">
+    <%= form.label :creditos, "Créditos Académicos", style: "display: block; font-weight: bold; color: #34495e; margin-bottom: 8px;" %>
+    <%= form.number_field :creditos, min: 1, max: 20, style: "width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #dcdde1; box-sizing: border-box;" %>
+  </div>
+
+  <%= form.submit "Guardar Cambios", style: "width: 100%; background-color: #27ae60; color: white; padding: 14px; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; transition: background 0.3s;" %>
+<% end %>

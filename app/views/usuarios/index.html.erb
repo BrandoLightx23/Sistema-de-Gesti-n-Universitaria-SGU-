@@ -1,0 +1,51 @@
+<div style="text-align: center; margin-top: 50px; font-family: sans-serif; max-width: 900px; margin-left: auto; margin-right: auto;">
+  <h1 style="color: #2c3e50;">Gestión de Cuentas Universitarias</h1>
+  <p style="color: #7f8c8d; margin-bottom: 40px;">Como administrador, puedes supervisar y gestionar a todos los miembros del sistema.</p>
+
+  <details style="background: #ffffff; border: 1px solid #dcdde1; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden;">
+    <summary style="padding: 20px; font-weight: bold; color: #2980b9; cursor: pointer; list-style: none; background: #f8f9fa; border-bottom: 1px solid #dcdde1;">
+      <i class="fa-solid fa-users"></i> Ver Lista de Usuarios Registrados
+    </summary>
+
+    <div style="padding: 20px;">
+      <table style="width: 100%; border-collapse: collapse; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid #3498db; color: #34495e;">
+            <th style="padding: 12px;">Nombre</th>
+            <th style="padding: 12px;">Correo</th>
+            <th style="padding: 12px;">Rol</th>
+            <th style="padding: 12px; text-align: center;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @usuarios.each do |usuario| %>
+            <tr style="border-bottom: 1px solid #eee; transition: background 0.2s;">
+              <td style="padding: 12px; font-weight: 500;"><%= usuario.nombre %></td>
+              <td style="padding: 12px; color: #7f8c8d; font-size: 14px;"><%= usuario.correo %></td>
+              <td style="padding: 12px;">
+                <% color = case usuario.tipo_usuario 
+                   when 'Administrativo' then '#2980b9' 
+                   when 'Docente' then '#e67e22' 
+                   else '#8e44ad' end %>
+                <span style="background: <%= color %>; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: bold;">
+                  <%= usuario.tipo_usuario %>
+                </span>
+              </td>
+              <td style="padding: 12px; text-align: center;">
+                <% if usuario != current_usuario %>
+                  <%= button_to "Eliminar Usuario", usuario_path(usuario), method: :delete, data: { turbo_confirm: "¿Estás seguro? Se borrarán todos sus datos asociados." }, style: "background: #c0392b; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;" %>
+                <% else %>
+                  <span style="color: #bdc3c7; font-size: 12px; font-style: italic;">(Tú)</span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <div style="margin-top: 30px; text-align: left;">
+    <a href="/" style="color: #7f8c8d; text-decoration: none; font-weight: bold;">← Regresar al Panel Principal</a>
+  </div>
+</div>

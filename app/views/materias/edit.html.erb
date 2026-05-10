@@ -1,0 +1,12 @@
+<div style="text-align: center; margin-top: 50px; font-family: sans-serif; max-width: 500px; margin-left: auto; margin-right: auto;">
+  <h1 style="color: #2c3e50; margin-bottom: 10px;">Editar Asignatura</h1>
+  <p style="color: #7f8c8d; margin-bottom: 30px;">Modifica los valores de <strong><%= @materia.nombre_materia %></strong></p>
+
+  <div style="background-color: #f8f9fa; border: 1px solid #ddd; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: left;">
+    <%= render "form", materia: @materia %>
+  </div>
+
+  <div style="margin-top: 30px; text-align: left; display: flex; justify-content: space-between;">
+    <%= link_to "← Regresar al catálogo", materias_path, style: "color: #7f8c8d; text-decoration: none; font-weight: bold;" %>
+  </div>
+</div>

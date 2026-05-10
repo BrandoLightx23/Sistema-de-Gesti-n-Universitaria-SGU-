@@ -1,0 +1,40 @@
+<div style="text-align: center; margin-top: 50px; font-family: sans-serif; max-width: 800px; margin-left: auto; margin-right: auto;">
+  <h1 style="color: #2c3e50;">Lista de Alumnos</h1>
+  <h2 style="color: #3498db;"><%= @materia.nombre_materia %></h2>
+
+  <div style="margin-top: 30px; background: #f8f9fa; padding: 30px; border-radius: 12px; border: 1px solid #ddd;">
+    <% if @inscripciones.any? %>
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr style="border-bottom: 2px solid #2c3e50;">
+          <th style="padding: 10px; text-align: left;">Nombre del Estudiante</th>
+          <th style="padding: 10px; text-align: center;">Matrícula</th>
+          <th style="padding: 10px; text-align: right;">Calificación</th>
+        </tr>
+        
+        <% @inscripciones.each do |inscripcion| %>
+          <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 10px; text-align: left;"><%= inscripcion.estudiante.usuario.nombre %></td>
+            <td style="padding: 10px; text-align: center;"><%= inscripcion.estudiante.matricula %></td>
+            <td style="padding: 10px; text-align: right;">
+               
+               <%= form_with(model: inscripcion, local: true, style: "display: flex; justify-content: flex-end; gap: 5px; align-items: center;") do |f| %>
+                 <%= f.number_field :calificacion, step: "0.1", min: 0, max: 10, placeholder: "0.0", style: "width: 70px; padding: 6px; text-align: center; border-radius: 4px; border: 1px solid #ccc; font-weight: bold; color: #2c3e50;" %>
+                 <%= f.submit "✔ Guardar", style: "background: #27ae60; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-weight: bold;" %>
+               <% end %>
+
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <div style="padding: 40px; color: #c0392b; background: #fadbd8; border-radius: 8px;">
+        <h3 style="margin: 10px 0;">¡Sin Alumnos Inscritos!</h3>
+        <p>Actualmente no hay estudiantes registrados en esta materia para el periodo actual.</p>
+      </div>
+    <% end %>
+  </div>
+
+  <div style="margin-top: 20px; text-align: left;">
+    <%= link_to "← Volver al Panel", imparticiones_path, style: "color: #7f8c8d; text-decoration: none; font-weight: bold;" %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_materia: MyString
+  creditos: 1
+  administrativo: one
+
+two:
+  nombre_materia: MyString
+  creditos: 1
+  administrativo: two
