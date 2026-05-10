@@ -82,6 +82,3 @@ Una vez iniciado, abre tu navegador y dirígete a: `http://localhost:3000`
 Este proyecto fue desarrollado por **Brando Rojas Tellez**, estudiante de Ingeniería en Sistemas Computacionales en la **Facultad de Ciencias de la Computación (BUAP)**, ciclo 2022-2026.
 
 ---
-* **Licencia:** Puedes agregar una sección de "Licencia MIT" si quieres que otros puedan aprender de tu código libremente.
-
-¡Con esto tu proyecto en GitHub pasará de ser un simple código a un portafolio profesional de ingeniería! ¡Éxito con el push final, panita!
