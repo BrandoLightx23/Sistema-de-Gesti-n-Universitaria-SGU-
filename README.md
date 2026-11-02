@@ -4,7 +4,7 @@ Este es un sistema integral de gestión académica desarrollado en **Ruby on Rai
 
 El proyecto implementa una arquitectura robusta para el manejo de catálogos de materias, asignación de imparticiones y procesos de inscripción con seguimiento de calificaciones.
 
-## 🚀 Características Principales
+##  Características Principales
 
 El sistema se divide en tres módulos principales según el rol del usuario:
 
@@ -27,7 +27,7 @@ El sistema se divide en tres módulos principales según el rol del usuario:
 
 
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 * **Framework:** Ruby on Rails (Optimizado para entornos Linux Mint/Unix).
 * **Lenguaje:** Ruby.
@@ -35,7 +35,7 @@ El sistema se divide en tres módulos principales según el rol del usuario:
 * **Frontend:** HTML5, CSS3 (Flexbox/Grid) y Turbo/Hotwire para interactividad sin recarga de página.
 * **Seguridad:** Encriptación de contraseñas mediante BCrypt.
 
-## 📋 Requisitos e Instalación
+## Requisitos e Instalación
 
 Para ejecutar este proyecto en tu entorno local (especialmente si usas sistemas basados en Debian/Ubuntu como Linux Mint), sigue estos pasos:
 
@@ -64,7 +64,7 @@ rails db:migrate
 
 
 
-## 💻 Cómo iniciar el servidor
+## Cómo iniciar el servidor
 
 Para poner en marcha el sistema, simplemente ejecuta el siguiente comando en tu terminal:
 
@@ -77,7 +77,7 @@ Una vez iniciado, abre tu navegador y dirígete a: `http://localhost:3000`
 
 ---
 
-## ✒️ Autor
+## Autor
 
 Este proyecto fue desarrollado por **Brando Rojas Tellez**, estudiante de Ingeniería en Sistemas Computacionales en la **Facultad de Ciencias de la Computación (BUAP)**, ciclo 2022-2026.
 
