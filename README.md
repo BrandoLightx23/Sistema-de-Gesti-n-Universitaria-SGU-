@@ -1,4 +1,4 @@
-# Sistema de Gestión Universitaria (SGU) 🎓
+# Sistema de Gestión Universitaria (SGU) 
 
 Este es un sistema integral de gestión académica desarrollado en **Ruby on Rails**, diseñado para facilitar la interacción entre los diferentes actores de la comunidad universitaria: Administrativos, Docentes y Estudiantes.
 
